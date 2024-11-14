@@ -29,10 +29,11 @@ function App() {
       .then((launches) => {
         if (launches.length < 10) {
           setHasMore(false);
+        } else {
+          setHasMore(true);
         }
         setLaunch((prevState) => [...prevState, ...launches]);
         setLoading(false);
-        console.log(offset, hasMore);
       });
   }, [offset, hasMore, search]);
 
