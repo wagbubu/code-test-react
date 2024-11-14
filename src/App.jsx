@@ -88,6 +88,7 @@ function App() {
           }
         })}
         {loading && <Spinner />}
+        {!hasMore && <p>No more data to fetch</p>}
       </div>
     </div>
   );
