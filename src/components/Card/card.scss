@@ -26,7 +26,7 @@ h1 {
 
 .badge {
   font-weight: bold;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
 }
 
 .date {
@@ -39,4 +39,9 @@ h1 {
 
 .green {
   background-color: greenyellow;
+}
+
+.red {
+  background-color: red;
+  color: white;
 }

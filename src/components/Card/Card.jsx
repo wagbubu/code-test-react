@@ -11,15 +11,19 @@ export default function Card({ lastRef, header, badge, year, imagesLink }) {
     ) : (
       <p>"No images"</p>
     );
-    
+
   return (
     <div ref={lastRef} className="card">
       <div className="card-header">
         <h1>{header}</h1>
         <div>
-          <p className={`badge ${badge ? "blue" : "green"}`}>
-            {badge ? "upcoming" : "done"}
-          </p>
+          {badge.upcoming ? (
+            <p className="badge blue">upcoming</p>
+          ) : badge.launchSuccess ? (
+            <p className="badge green">success</p>
+          ) : (
+            <p className="badge red">failed</p>
+          )}
         </div>
       </div>
       <div className="card-body">

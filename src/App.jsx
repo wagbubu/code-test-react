@@ -45,7 +45,6 @@ function App() {
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
           setOffset((prevOffset) => prevOffset + 10);
-          console.log("intersecting");
         }
       });
       if (node) observer.current.observe(node);
@@ -53,7 +52,6 @@ function App() {
     [loading, hasMore]
   );
 
-  console.log(launches);
   return (
     <div className="App">
       <input
@@ -72,7 +70,10 @@ function App() {
                 images={launch.links.flickr_images}
                 key={launch.flight_number}
                 header={launch.mission_name}
-                badge={launch.upcoming}
+                badge={{
+                  upcoming: launch.upcoming,
+                  launchSuccess: launch.launch_success,
+                }}
                 year={launch.launch_date_unix}
               />
             );
@@ -82,7 +83,10 @@ function App() {
                 imagesLink={launch.links.flickr_images}
                 key={launch.flight_number}
                 header={launch.mission_name}
-                badge={launch.upcoming}
+                badge={{
+                  upcoming: launch.upcoming,
+                  launchSuccess: launch.launch_success,
+                }}
                 year={launch.launch_date_unix}
               />
             );
